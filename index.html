@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<style>
+    html {
+    height: 100%;
+}
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container{
+        margin: auto;
+    }
+    i{
+        font-size: 40px;
+        text-align: center;
+        margin: auto;
+        color: blue;
+    }
+    p{
+        font-size: 20px;
+        padding-top: 10px;
+    }
+</style>
+<html>
+    <head>
+        <script src="js_modules/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/423a3b3e3b.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+            <p class="loading">Loading...</p>
+        </div>
+
+    </body>
+    <script type="module">
+        // export the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+      import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+
+        //import Cookies from '../js_modules/js.cookie.mjs';
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAgEwhwL0DpPUETZf2evitXu_O_kr6OXZc",
+            authDomain: "tracker-ac475.firebaseapp.com",
+            projectId: "tracker-ac475",
+            storageBucket: "tracker-ac475.appspot.com",
+            messagingSenderId: "149153242441",
+            appId: "1:149153242441:web:5d23c869a764264d544e98"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+
+      auth.onAuthStateChanged((user) =>{
+          if(user){
+           //userid = user.uid
+              //console.log('setUser', user.uid);
+              window.location.href = "dashboard.html";
+          }else{
+            //console.log('setUser', null);
+            window.location.href = "login.html";
+          }
+      });
+    </script>
+</html>

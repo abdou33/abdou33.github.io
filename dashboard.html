@@ -1,0 +1,1071 @@
+<!doctype html>
+<style>
+  *{
+        padding: 0;
+        margin: 0;
+    }
+
+    html {
+      font-family: sans-serif;
+      line-height: 1.15;
+      height: 100%;
+    }
+
+    .header{
+        background-color: #111;
+        overflow: hidden;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+    }
+    
+
+    #logo{
+        width: 95px;
+        margin-right: 20px;
+    }
+
+    .right_elements{
+        display: flex;
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        padding: 1%;
+        color: white;
+    }
+    .right_elements a{
+        color: white;
+        text-decoration: none;
+    }
+
+    .middle_elements{
+      display: flex;
+      width: 15%;
+      justify-content: space-evenly;
+    }
+    .middle_elements * {
+      padding: 1%;
+    }
+    #menu-icon{
+      margin: auto 0 auto 1%;
+      color: white;
+    }
+  body {
+    /*display: none;*/
+
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #1a1a1a;
+      text-align: left;
+      height: 100%;
+      background-color: #fff;
+  }
+
+  .container1 {
+      position: fixed;
+      z-index: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+  }
+
+  .map {
+      flex: 1;
+      background: #f0f0f0;
+  }
+
+  .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 60px;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      /* padding-top: 60px; */
+  }
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #cbcbcb;
+  /* color:rgb(88, 208, 255); */
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+#qr img{
+  background-color: white;
+  padding: 10px;
+
+  animation: fade_in_show .5s
+}
+
+@keyframes fade_in_show {
+     0% {
+          height: 0;
+          width: 250px;
+          padding: 10px;
+     }
+
+     100% {
+          height: 250px;
+          width: 250px;
+          padding: 10px;
+     }
+}
+  
+.device{
+  border-radius: 0.6vw;
+  margin: 10px;
+  padding: 3px 10px 3px 10px;
+  border: black 2px solid;
+  /* background-color: #818181; */
+  background-color: rgb(96, 133, 255);
+  color: white;
+  word-wrap: break-word;
+
+  /* animation: fade_in_show .5s */
+}
+.device p {
+  margin-bottom: 10px;
+}
+
+.device:hover, #add_phone:hover, #logout:hover{
+  cursor: pointer;
+}
+
+.titlediv{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.type{
+  padding: 8px 8px 8px 32px;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+#logout{
+  /* bottom: 10%;
+  position:absolute; */
+  margin-top: 20px;
+}
+#logout:hover{
+  color: red;
+}
+
+.account{
+  width: 15%;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  color: white;
+  margin: 0 3% 0 3%;
+}
+.account * {
+  margin-left: auto;
+}
+#account{
+  margin: auto;
+}
+
+#name{
+  margin: auto 10px;
+}
+
+#profile{
+  display: none;
+  margin: auto;
+  position: fixed;
+  width: 50%;
+  height: 70%;
+  background-color: #111;
+  z-index: -1;
+  left: 25%;
+  top: 15%;
+  border-radius: 1vw;
+  /*display: none;*/
+}
+
+#profile * {
+  color: white;
+}
+
+#close{
+  position: absolute;
+  text-align: center;
+  right: -30px;
+  top: -30px;
+  color: black;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  background-color: rgb(247, 13, 13);
+  border-radius: 50%;
+}
+
+#first_letter2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 8vw;
+  height: 8vw;
+  text-align: center;
+  border-radius: 50%;
+  background-color: rgb(87, 127, 255);
+  margin: 5% auto 2% auto;
+
+  font-size: 3vw;
+}
+#infos{
+  text-align: left;
+  font-size: 1.5vw;
+  width: 50%;
+  margin: auto;
+}
+#first_letter:hover, #close:hover{
+  cursor: pointer;
+}
+
+#loader{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#loading{
+  display: block;
+  font-size: 50px;
+  text-align: center;
+  margin: auto;
+}
+
+#interneterror{
+  display: none;
+
+  margin: auto;
+  text-align: center;
+  display: none;
+}
+
+#userloginerror{
+  display: none;
+
+  position: absolute;
+  margin: auto;
+  text-align: center;
+  display: none;
+  margin: auto;
+  width: 100%;
+  height: 50%;
+}
+
+.svg{
+  width: 100px;
+  margin-top: 20%;
+}
+#newdevice{
+  position: fixed !important;
+  z-index: 5;
+  right: -15rem;
+}
+
+.newdeviceclass{
+  animation: newdevice 5s
+}
+
+.terain_type:hover {
+  cursor: pointer;
+}
+
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+.sendmsg{
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 4px 14px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.messagebox{
+  display: flex;
+}
+
+.msginput{
+  width: 150px;
+  height: 40px;
+}
+
+@keyframes newdevice {
+     0% {
+      right: -15rem;
+     }
+
+     10% {
+      right: 0rem;
+     }
+
+     90% {
+      right: 0rem;
+     }
+
+     100% {
+      right: -15rem;
+     }
+}
+
+/*for mobiles*/
+@media only screen and (max-width: 600px) {
+  .header{
+    height: 40px;
+  }
+  .sidenav {
+    top: 40px;
+  }
+  .middle_elements img {
+      display: none;
+
+  }
+	#name{
+    display: none;
+  }
+  .right_elements a{
+    font-size: 10px;
+  }
+
+  #profile{
+  display: none;
+  margin: auto;
+  position: fixed;
+  width: 70%;
+  height: 40%;
+  background-color: #111;
+  z-index: -1;
+  left: 15%;
+  top: 25%;
+  border-radius: 1vw;
+  /*display: none;*/
+  }
+
+  #profile * {
+    color: white;
+  }
+
+  #close{
+    position: absolute;
+    text-align: center;
+    right: -30px;
+    top: -30px;
+    color: black;
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    background-color: rgb(247, 13, 13);
+    border-radius: 50%;
+  }
+
+  #first_letter2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10vw;
+    height: 10vw;
+    text-align: center;
+    border-radius: 50%;
+    background-color: rgb(87, 127, 255);
+    margin: 5% auto 2% auto;
+
+    font-size: 3vw;
+  }
+  #infos{
+    text-align: left;
+    font-size: 3vw;
+    width: 70%;
+    margin: auto;
+  }
+}
+</style>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>🌏 Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="styles.css">
+
+    <link href="fontawesome-free-6.2.1-web/css/all.css" rel="stylesheet" type='text/css'>
+    <link href="fontawesome-free-6.2.1-web/css/solid.css" rel="stylesheet" type='text/css'>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="js_modules/jquery.min.js"></script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+
+    <div id="interneterror">
+      <img src="media/icons/nonet.svg" class="svg">
+      <i class="fa-duotone fa-wifi"></i>
+      <h4>please check your internet connection and try again ;) </h4>
+    </div>
+  
+    <div id="userloginerror">
+      <!-- <i class="fa-regular fa-circle-exclamation"></i> -->
+      <img src="media/icons/error.svg" class="svg">
+      <h4>there was an error</h4>
+      <a href="login.html">jump to login page</a>
+    </div>
+  </head>
+  <div id="loader">
+    <i id="loading" class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+  </div>
+
+  <body>
+    <div class="header">
+      <div class="middle_elements">
+        <span style="font-size:30px;cursor:pointer" onclick="switchsidemenu()" id="menu-icon"><i class="fa-solid fa-bars"></i></span>
+        <img src="media/white_logo.png" id="logo">
+      </div>
+      
+      <div class="right_elements">
+              <a href="press.html">Press</a>
+              <a href="socials.html">Social</a>
+              <a href="safety.html">safety</a>
+              <a href="about.html">About</a>
+              <a href="termofuse.html">term of use</a>
+              <a href="help.html">Help</a>
+      </div>
+      <div class="account">
+        <h4 id="first_letter" style="display: none;"></h4>
+        <p id="name"></p>
+        <span style="font-size:25px;cursor:pointer" id="account"><i class="fa-regular fa-user"></i> </span>
+      </div>
+            
+      
+      
+      <div id="mySidenav" class="sidenav">
+        <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></a> -->
+
+        <a id="add_phone" class="btn-sm"><i class="fa-sharp fa-solid fa-plus"></i> Add a phone <i class="fa-solid fa-caret-down"></i></a>
+        <div id="qr">
+        </div>
+        <a href="#" id="devices" class="btn-sm"><i class="fa-solid fa-mobile"></i> Devices <i class="fa-solid fa-caret-down"></i></a>
+        <div id="devices_list" style="display: none;">
+
+        </div>
+        <a href="#" id="maptype" class="btn-sm"> <i class="fa-solid fa-layer-group"></i> Map type <i class="fa-solid fa-caret-down"></i></a>
+        <div id="types" style="display: none;">
+
+          <!-- Card -->
+        <div class="bg-image card shadow-1-strong align-items-center" style="background-image: url('media/maptypes/hybrid.jpg'); opacity: 0.5;">
+          <div class="card-body text-white terain_type">
+            <p class="card-text font-weight-bold type" style="background-color: rgb(133, 133, 133); color: white; opacity: 1;"  data-type="HYBRID">hybrid</p>
+          </div>
+        </div>
+  
+        <div class="bg-image card shadow-1-strong align-items-center" style="background-image: url('media/maptypes/roadmap.jpeg'); opacity: 0.5">
+          <div class="card-body text-white terain_type">
+            <p class="card-text font-weight-bold type" style="background-color: rgb(133, 133, 133); color: white"  data-type="ROADMAP">roadmap</p>
+          </div>
+        </div>
+  
+        <div class="bg-image card shadow-1-strong align-items-center" style="background-image: url('media/maptypes/satellite.jpg'); opacity: 0.5">
+          <div class="card-body text-white terain_type">
+            <p class="card-text font-weight-bold type" style="background-color: rgb(133, 133, 133); color: white"  data-type="SATELLITE">satellite</p>
+          </div>
+        </div>
+  
+        <div class="bg-image card shadow-1-strong align-items-center" style="background-image: url('media/maptypes/terrain.png'); opacity: 0.5">
+          <div class="card-body text-white terain_type">
+            <p class="card-text font-weight-bold type" style="background-color: rgb(133, 133, 133); color: white"  data-type="TERRAIN">terrain</p>
+          </div>
+        </div>
+        <!-- Card -->
+
+        </div>
+        
+        <a href="clients.html" class="btn-sm"> <i class="fa-solid fa-user"></i> Clients</a>
+        <a href="help.html" class="btn-sm"> <i class="fa-solid fa-message"></i> Contact</a>
+
+        <a id="logout" class="btn-sm">Log out <i class="fa-solid fa-right-from-bracket"></i></a>
+      </div>
+    </div>
+    <div id="profile">
+      <i id="close" class="fa-sharp fa-solid fa-xmark"></i>
+      <h3 id="first_letter2"></h3>
+      <div id="infos">
+        <p id="firstname">first name: </p>
+        <p id="lastname">last name: </p>
+        <p id="phonenumber">phone number: </p>
+        <p id="email">email: </p>
+        <p id="id">user id: </p>
+      </div>
+    </div>
+
+    <div class="card text-white bg-primary mb-3" id="newdevice" style="max-width: 15rem;">
+      <div class="card-body">
+        <h5 class="card-title">new device!!!</h5>
+        <p class="card-text">new device has been added :)</p>
+      </div>
+    </div>
+
+    <main class="container1">
+      <div id="map" class="map"></div>
+    </main>
+
+    <script src="script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOxDhUjOPI6XUMQwjESzSNGH0mQT2o8S0&callback=init"></script>
+  </body>
+
+  <script type="text/javascript">
+
+    const initialPosition = { lat: 26.516788, lng: 8.4887454 };
+    var marker = null;
+    var map = null;
+
+    function init() {
+    
+
+     map = new google.maps.Map(document.getElementById('map'), {
+        center: initialPosition,
+        zoom: 19,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        streetViewControl: false,
+        disableDefaultUI: false,
+        zoomControl: true,
+    zoomControlOptions: {
+      position: google.maps.ControlPosition.RIGHT_TOP,
+    },
+    fullscreenControl: true,
+    fullscreenControlOptions: {
+      position: google.maps.ControlPosition.RIGHT_TOP,
+    }
+    });
+    
+     //marker = new google.maps.Marker({ map, position: initialPosition, title: "Hello World!", icon: {url: image,labelOrigin: new google.maps.Point(20, 35)} });
+    //moveMarker(marker)
+
+    }
+
+    function follow_marker(a,b){
+      map.panTo({
+          lat : a,
+          lng : b,
+        });
+    }
+
+    function get_duration(time){
+      let now = new Date().getTime();
+      let diffTime = Math.abs(now - time);
+
+      let days = diffTime / (24*60*60*1000);
+      let hours = (days % 1) * 24;
+      let minutes = (hours % 1) * 60;
+      let secs = (minutes % 1) * 60;
+      [days, hours, minutes, secs] = [Math.floor(days), Math.floor(hours), Math.floor(minutes), Math.floor(secs)]
+      //console.log((days == 0 ? "" :days+'d') + (hours == 0 ? "":hours+'h') + (minutes == 0 ? "":minutes+'m') + (secs == 0 ? "":secs+'s'))
+
+      return ((days == 0 ? "" :days+'d')  + " " + (hours == 0 ? "":hours+'h')  + " "  + (minutes == 0 ? "":minutes+'m')  + " "  + (secs == 0 ? "":secs+'s'))
+    }
+
+    function online_or_offline(time){
+      let now = new Date().getTime();
+      let diffTime = Math.abs(now - time);
+
+      if (diffTime/1000 < 10){
+        return "ONLINE";
+      }
+      else {
+        return "OFFLINE"
+      }
+    }
+
+
+    devices_list = document.getElementById("devices_list")
+    let markers = [];
+    var found = false;
+
+    function change_location(inf){
+      var image;
+      hideMarkers()
+      inf.forEach((doc) => {
+        devices_list.innerHTML = '';
+        //console.log(doc.data())
+        if(doc.data().platform == "android"){
+        if(online_or_offline(doc.data().last_online) == "ONLINE"){
+          image = "media/markers/android_online.png";
+        }
+        else if(online_or_offline(doc.data().last_online) == "OFFLINE"){
+          image = "media/markers/android_offline.png";
+        }
+      }
+      else if(doc.data().platform == "ios"){
+        if(online_or_offline(doc.data().last_online) == "ONLINE"){
+          image = "media/markers/ios_online.png";
+        }
+        else if(online_or_offline(doc.data().last_online) == "OFFLINE"){
+          image = "media/markers/ios_offline.png";
+        }
+      }
+        markers.push(new google.maps.Marker({ map, position: { lat: doc.data().location['Latitude'], lng: doc.data().location['Longitude']}, label: doc.data().phone_model, title: "Last online:" + get_duration(doc.data().last_online), icon: {url: image,labelOrigin: new google.maps.Point(20, 35)} })) 
+        image = ""
+      })
+
+    }
+    function setMapOnAll(map) {
+      for (let i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+      }
+    }
+    function hideMarkers() {
+      setMapOnAll(null);
+    }
+    function deleteMarkers() {
+      hideMarkers();
+      markers = [];
+    }
+
+    function create_divs(obj){
+      devices_list.innerHTML = '';
+      obj.forEach((doc) => {
+        titlediv = document.createElement('div')
+        titlediv.className = "titlediv"
+
+        trashcan = document.createElement('i')
+        trashcan.className = "fa-solid fa-trash"
+        trashcan.dataset.title = doc.data().phone_model;
+
+        //console.log(doc.data())
+        h4 = document.createElement('h4');
+        h4.className = "device_title";
+        h4.innerHTML = doc.data().phone_model;
+
+        titlediv.appendChild(h4);
+        titlediv.appendChild(trashcan);
+
+        platform = document.createElement('p')
+        platform.textContent = "platform: " + doc.data().platform 
+
+        p1 = document.createElement('p');
+        p1.className = "device_statu";
+        p1.textContent = "status:" + online_or_offline(doc.data().last_online);
+        if (p1.innerHTML == "status:OFFLINE"){
+          p1.innerHTML += "<br>Last online:<br>" + get_duration(doc.data().last_online) + "&nbsp;ago";
+        }
+
+        p2 = document.createElement('p');
+        p2.className = "device_battery";
+        p2.textContent = "battery:" + doc.data().batterie;
+
+        p3 = document.createElement('p');
+        p3.className = "device_identifier";
+        p3.innerHTML = "identifier:<br>" + doc.data().serial;
+
+        butt2 = document.createElement("button")
+        butt2.className = "sendmsg"
+        butt2.innerHTML = '<i class="fas fa-paper-plane"></i>';
+        
+        inp = document.createElement("input");
+        inp.className = "msginput"
+        inp.setAttribute("id", doc.data().phone_model+"text");
+        inp.onclick = function(event){
+          if (!e) var e = window.event;
+        e.cancelBubble = true;
+        if (e.stopPropagation) e.stopPropagation();  
+        }
+
+        div3 = document.createElement('div');
+        div3.className = "messagebox";
+        div3.appendChild(inp);
+        div3.appendChild(butt2);
+
+        butt2.onclick = function(event) {
+          if (!e) var e = window.event;
+        e.cancelBubble = true;
+        if (e.stopPropagation) e.stopPropagation();  
+          text = document.getElementById(doc.data().phone_model+"text").value;
+            console.log(text);
+            sendMessage(text, doc.data().notifications_token);
+          }
+
+        div = document.createElement('div');
+        div.className = 'device';
+        //div.attr = 'onClick={e => alert(e.target)}';
+        div.dataset.location_lat = doc.data().location['Latitude'];
+        div.dataset.location_lng = doc.data().location['Longitude'];
+
+        div.append(titlediv)
+        div.append(platform)
+        div.appendChild(p1);
+        div.appendChild(p2);
+        div.appendChild(p3);
+        div.appendChild(div3);
+        devices_list.appendChild(div)
+      })
+      
+    }
+
+    // fUEvYYdTR4K6AAs2306Jvq:APA91bHpM7i4HXKt2NVrnHD7FauhTETzXYstyRvEi5u30yzKg2Z8sdEj27gwsjX68x8QUciah6blWNp-1OAsww1ZZ5_egdAAo5dxNIJmqglJopR1OT3Rr5Kajml8f56jiijTS7VhCXAo
+    function sendMessage(msg, token){
+      if(msg != ""){
+        $.ajax({
+            method: 'POST',
+            url: 'https://fcm.googleapis.com/fcm/send',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': 'key=AAAAIro53Uk:APA91bFMRZtqBltlscGcZt5E7SZXdsckr1g-Y2_pMY0ljmdQLLG82bNoZvI5HjkPXyQHj3LrXLo2avkekDUTSG8t7-LAxbZWeY9KmQeyZ3_5m2PGXG0Nc3FMEqb7ACi4piorA-pMth4p',
+              },
+              data: JSON.stringify({
+                  'to': token,
+                  'notification': {
+                      'title': 'New Message!',
+                      'body': msg
+                  }
+              }),
+              success: function(response) {
+                  console.log(response);
+                  alert("message has been delivered");
+              },
+              error: function(xhr, status, error) {
+                  console.log('Error: ' + error.message);
+              }
+          });
+      }
+      else {
+        alert("you cant send an empty message")
+      }
+          
+        };
+
+      $(document).on( 'click', '.type', function () {
+
+        $('.type').each(function(i, obj) {
+          //console.log($(this).dataset.type)
+          $(this).text($(this).attr("data-type").toLowerCase());
+        });
+        $(this).append('&nbsp;<i class="fa-solid fa-circle-check"></i>');
+
+        if($(this).data('type') == "HYBRID"){
+          map.setMapTypeId(google.maps.MapTypeId.HYBRID);
+        }
+        else if($(this).data('type') == "SATELLITE"){
+          map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+        }
+        else if($(this).data('type') == "ROADMAP"){
+          map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+        }
+        else if($(this).data('type') == "TERRAIN"){
+          map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+        }
+        //console.log("google.maps.MapTypeId." + $(this).data('type'))
+        
+      })
+
+    $(document).on( 'click', '.device', function () {
+      //console.log("clicked")
+      console.log($(this).data('location_lat') + "\t" + $(this).data('location_lng'))
+      follow_marker($(this).data('location_lat'), $(this).data('location_lng'))
+    })
+
+    var delay = 1000; //milliseconds
+    
+  </script>
+  <script type="module">
+      // export the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
+      //import { getMessaging } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-messaging.js";
+      import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc, collection, getCountFromServer, updateDoc, getDoc, getDocs, onSnapshot, query, deleteDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"; 
+
+        //import Cookies from '../js_modules/js.cookie.mjs';
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAgEwhwL0DpPUETZf2evitXu_O_kr6OXZc",
+            authDomain: "tracker-ac475.firebaseapp.com",
+            projectId: "tracker-ac475",
+            storageBucket: "tracker-ac475.appspot.com",
+            messagingSenderId: "149153242441",
+            appId: "1:149153242441:web:5d23c869a764264d544e98"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        //const messaging = getMessaging(app);
+        let db = getFirestore(app);
+        const auth = getAuth();
+
+        
+
+        
+        
+        var userid = ""
+
+        function hidestuff(val){
+          if(val){
+            $(".header").hide();
+            $("#profile").hide();
+            $(".container1").hide();
+            $("#loader").hide()
+          }
+          else{
+            $(".header").show();
+            $("#profile").show();
+            $(".container1").show();
+            $("#loader").hide()
+          }
+
+        }
+
+      auth.onAuthStateChanged((user) =>{
+          if(user){
+            userid = user.uid
+              console.log('setUser', user.uid);
+              console.log(userid)
+              hidestuff(false)
+              
+              first()
+              get_user_name(userid)
+              create_qr()
+          }else{
+            console.log('setUser', null);
+            hidestuff(true)
+            $("#userloginerror").show();
+          }
+      });
+
+        //userid = Cookies.get("Userid");
+        /*while(userid == ""){
+          userid = id;
+        }*/;
+
+        // users => userid => phones => all
+
+        var devices_number = -1
+        async function first(){
+          const docRef = doc(db, "users", userid)
+          const colRef = collection(docRef, "phones")
+          // const docSnap = await getDocs(colRef).then(function(result) {
+          //     console.log(result);
+          //   }).catch(e => {
+          //   console.log("error=\t\t\t"+e.message);  
+          // });
+
+          const snapshot = await getCountFromServer(colRef);
+          console.log('count: ', snapshot.data().count);
+
+          if(devices_number == -1){
+            devices_number = snapshot.data().count;
+          }
+
+          const q = query(colRef);
+          const unsubscribe = onSnapshot(q, (querySnapshot) => {
+            console.table(devices_number , querySnapshot.size)
+
+            if(devices_number != -1){
+              if(devices_number < querySnapshot.size){
+                doanimation()
+                console.log("new device has been added :)");
+                devices_number = querySnapshot.size;
+              }
+              else if(devices_number > querySnapshot.size){
+                devices_number = querySnapshot.size;
+              }
+            }
+            change_location(querySnapshot)
+            create_divs(querySnapshot);
+            console.log("devicces_number::: \t"+devices_number)
+          })
+        }
+
+        async function removedevice(device){
+
+          // const batch = writeBatch(db);
+
+          const docRef = doc(db, "users", userid)
+          const colRef = collection(docRef, "phones")
+
+          await deleteDoc(doc(colRef, device));
+        }
+
+
+        $(document).on( 'click', '.fa-trash', function () {
+          console.log("clicked\t" + $(this).data('title'))
+
+          let text = "are you sure you want to remove " + '"' + $(this).data('title') + '"' + " device";
+          if (confirm(text) == true) {
+            console.log("yes")
+            removedevice($(this).data('title'))
+          } else {
+            console.log("no")
+          }
+        })
+
+        const delay = ms => new Promise(res => setTimeout(res, ms));
+        async function doanimation(){
+          $('#newdevice').addClass("newdeviceclass");
+          await delay(6000);
+          $('#newdevice').removeClass("newdeviceclass");
+        }
+
+        
+        // styling functions and basic functionalities 
+        console.log(userid);
+        $('#add_phone').click(function() {
+
+          var x = document.getElementById("qr");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        })
+
+        $('#devices').click(function() {
+          var x = document.getElementById("devices_list");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        })
+
+        $('#maptype').click(function() {
+          var x = document.getElementById("types");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        })
+
+        function create_qr(){
+          var qrcode = new QRCode(document.getElementById("qr"), {
+            text: userid,
+            width: 230,
+            height: 230,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+          });
+          document.getElementById("qr").style.display = "none";
+        }
+
+        async function get_user_name(user_id){
+          const docRef = doc(db, "users", user_id);
+          const docSnap = await getDoc(docRef);
+
+          var first_letter = document.getElementById("first_letter");
+          var name = document.getElementById("name");
+
+          if (docSnap.exists()) {
+            //console.log("Document data:", docSnap.data());
+            //first_letter.innerHTML = Array.from(docSnap.data().first_name)[0].toUpperCase();
+            name.innerHTML = docSnap.data().first_name + " " + docSnap.data().last_name;
+
+            document.getElementById("first_letter2").innerHTML = first_letter.innerHTML = Array.from(docSnap.data().first_name)[0].toUpperCase();
+            document.getElementById("firstname").innerHTML = "first name: " + docSnap.data().first_name;
+            document.getElementById("lastname").innerHTML = "last name: " + docSnap.data().last_name;
+            document.getElementById("phonenumber").innerHTML = "phone number: +" + docSnap.data().phone_number;
+            document.getElementById("email").innerHTML = "email: " + docSnap.data().email;
+            document.getElementById("id").innerHTML = "user id: " + docSnap.data().user_id + "<br>(keep this one private)";
+          } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+          }
+        }
+
+        $('#close').click(function() {
+          document.getElementById("profile").style.zIndex = -1
+        })
+        $('#account').click(function() {
+          document.getElementById("profile").style.zIndex = 2
+        })
+
+        $('#logout').click(function(){
+          signOut(auth).then(function() {
+            console.log("done")
+            window.location.href = "login.html";
+          }).catch(function(error) {
+            console.log(error)
+          });
+        })
+  </script>
+  <script>
+    var issidemenuopen = false;
+
+    function switchsidemenu(){
+      if(issidemenuopen == true){
+        document.getElementById("menu-icon").innerHTML = '<i class="fa-solid fa-bars"></i>';
+        document.getElementById("mySidenav").style.width = "0";
+        issidemenuopen = false;
+      }
+      else if(issidemenuopen == false){
+        var width = document.getElementsByClassName('header').offsetHeight;
+        document.getElementById("menu-icon").innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("mySidenav").style.top = width;
+        issidemenuopen = true;
+      }
+    }
+
+    </script>
+</html>

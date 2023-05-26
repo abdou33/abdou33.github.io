@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<style>
+    @font-face {
+        font-family: 'RobotoMono';
+        src: url(fonts/Roboto_Mono/static/RobotoMono-Bold.ttf);
+    }
+    *{
+        margin: 0;
+        font-family: "RobotoMono";
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active{
+        -webkit-box-shadow: 0 0 0 30px rgb(235, 235, 235) inset !important;
+    }
+    body{
+        background-color: rgb(232, 242, 251);
+        overflow-y: hidden;
+    }
+    /* header */
+    .header{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content:space-evenly;
+        align-items: center;
+        top: 0;
+        position: fixed;
+
+        /* margin-bottom: 20px; */
+    }
+    #logo{
+        width: 95px;
+        margin-right: 20px;
+    }
+    .right_elements{
+        display: flex;
+        gap: 50px;
+        align-items: center;
+    }
+    .right_elements a{
+        text-decoration: none;
+        color: black;
+    }
+    .left_elements{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+    .left_elements *{
+        color: black;
+    }
+    #login_btn{
+        padding: 7px 20px 7px 20px ;
+        border-radius: 50vw;
+    }
+
+    /* body */
+    .principal{
+        display: flex;
+        width: 100%;
+        width: 100%;
+    }
+    /* .right{
+        margin-top: 20px;
+        width: 40%;
+        display: inline-block center;
+        text-align:center;
+    } */
+    .right{
+        width: 100%;
+        display: block;
+        /* padding-top: 8%;*/
+        padding-top: 20px;
+        width: 50%;
+        display: inline-block center;
+        text-align:center;
+        margin: auto;
+    }
+    .right input:not([type=checkbox]){
+            width: 100%;
+        }
+    .right h2{
+        font-weight: 100;
+        margin-bottom: 40px;
+        margin-top: 10%;
+    }
+    #email,#password, #first_name, #last_name, #phone_prefix, #phone_num, #confirm_password{
+        width: 50%;
+        height: 30%;
+        border-radius: 10px;
+        padding:15px;
+        margin-top: 15px;
+        background-color: rgb(235, 235, 235);
+        border: none;
+    }
+    .phone_number{
+        display: flex;
+        height: 30%;
+        width: calc(50% + 30px);
+        margin: auto;
+    }
+    #phone_prefix{
+        width: 29%;
+        appearance: none;
+    }
+    #phone_num{
+        width: 69%;
+        margin-left: 2%;
+    }
+    #remember, #showpass{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
+        margin: auto;
+        white-space: nowrap;
+        margin-left: 25%;
+        margin-top: 10px;
+        font-size: 17px;
+    }
+    #remember input[type='checkbox'],#showpass input[type='checkbox'],label{
+        margin: 0;
+        padding: 0;
+    }
+    #error{
+        color: red;
+        font-size: 10px;
+    }
+    #button3{
+        border-radius: 50vw;
+        padding: 5px 13px 5px 13px;
+    }
+    #button3 i{
+        margin: 0 3px 0 3px;
+    }
+    #gologin{
+        font-size: 15px !important;
+        margin-top: 10px;
+    }
+    #button3:hover, #login_btn:hover{
+        cursor: pointer;
+    }
+    #recoverpass{
+        color: black;
+    }
+    #spliter{
+        width: 60%;
+        margin: 4% auto 4% auto;
+    }
+    .right #continue-with{
+        font-size: 15px;
+        margin-top: 0 !important;
+    }
+    .other-signins{
+        width: 60%;
+        margin:2% auto;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .other-signins div{
+        padding: 2% 7% 2% 7%;
+        background-color: rgb(232, 242, 251);
+        border-radius: 0.3vw;
+        border: 1px grey solid;
+        transition: background-color 0.5s ease;
+        display: flex;
+        align-items: center;
+    }
+    .other-signins div:hover{
+        background-color: rgb(219, 219, 219);
+        transition: background-color 0.5s ease;
+        cursor: pointer;
+    }
+    .icon{
+        width: 20px;
+    }
+    /* .left{
+        width: 60%;
+        display: flex;
+        position: relative;
+        justify-content: center;
+    } */
+
+    .left{
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            opacity: 0.28;;
+        }
+    #map{
+        width: 100%;
+        height: 86vh;
+        position: relative;
+        z-index: -1;
+        /*height: 100px; width: 200px; */
+        opacity: 0.7;
+    }
+    .left .markers{
+        position: absolute;
+        top: 30px;
+        left: 600px;
+        margin: auto;
+        color: red;
+        font-size: 25px;
+        z-index: 3;
+        transition: all 1s ease-in-out;
+    }
+    /* footer{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        bottom: 0;
+        position: relative;
+        border-top: black 2px solid;
+        padding: 0;
+    } */
+    footer{
+            margin-top: 50px;
+            justify-content: center;
+            position:fixed;
+            bottom: 0;
+            border-top: black 2px solid;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+    @media screen and (max-width:800px) {
+        body{
+            /*overflow-y: hidden;*/
+        }
+        .header{
+            font-size: 2vw;
+            border-bottom: black 2px solid;
+        }
+        #logo{
+            width: 50px;
+            margin-right: 20px;
+        }
+
+        .right_elements{
+            width: 60%;
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+        .right_elements a{
+            font-size: 2.5vw;
+            text-decoration: none;
+            color: black;
+        }
+        .nophone{
+            display: none;
+        }
+        #login_btn{
+            padding: 3px 10px 3px 10px ;
+            border-radius: 50vw;
+        }
+        .principal{
+            /*display: block;*/
+            width: 100%;
+            color: black;
+        }
+        .principal p:not(#error){
+            font-size: 10vw;
+        }
+        .right{
+            width: 100%;
+            display: block;
+           /* padding-top: 8%;*/
+        }
+        .right input:not([type=checkbox]){
+            width: 100%;
+        }
+        #phone_prefix{
+            width: 34%;
+            appearance: none;
+            /*padding: 15px;*/
+        }
+        #phone_num{
+            width: 64%;
+            margin-left: 2%;
+        }
+        .left{
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            opacity: 0.28;;
+        }
+        .other-signins div{
+            border-radius: 1.5vw;
+        }
+        #map{
+            top: 0;
+            width: 100%;
+            height: 95vh;
+        }
+        .right form{
+            margin: auto;
+            width: 100%;
+           /* background-color: rgba(0, 0, 0, 0.062);*/
+            border-radius: 1vw;
+            padding: 2% 0 2% 0;
+        }
+
+        footer{
+            margin-top: 50px;
+            justify-content: center;
+            position:relative;
+            border-top: black 2px solid;
+            padding: 0;
+            width: 100%;
+        }
+            
+    }
+</style>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <script src="js_modules/jquery.min.js"></script>
+        <!--<script type="module" src="js_modules/js.cookie.mjs"></script>-->
+        <script src="https://kit.fontawesome.com/423a3b3e3b.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/font-awesome.min.css">
+    </head>
+    <body id="body">
+        <div class="header">
+            <img src="media/logo.png" id="logo">
+                <div class="right_elements">
+                    <a href="about.html">About</a>
+                    <a href="safety.html" class="nophone">data safety</a>
+                    <a href="termofuse.html" class="nophone">service terms</a>
+                    <a href="resources.html">resources</a>
+                    <a href="clients.html">Support</a>
+                </div>
+                <!-- <div class="right_elements">
+                    <button id="login_btn">Sign in</button>
+                    <h3 style="text-decoration: underline;">Register</h3>
+                </div> -->
+        </div>
+        <div class="principal">
+            <div class="right">
+                <h2>Signup</h2>
+                <form onsubmit="return false;">
+                    <input id="first_name" autocomplete="on" placeholder="First name" onkeypress="return /[a-z]/i.test(event.key)">
+                    <input id="last_name" autocomplete="on" placeholder="Last name" onkeypress="return /[a-z]/i.test(event.key)">
+                    <div class="phone_number">
+                        <select name="prefix" id="phone_prefix">
+                            <option data-countryCode="DZ" value="213">+213</option> <option data-countryCode="AD" value="376">+376</option> <option data-countryCode="AO" value="244">+244</option> <option data-countryCode="AI" value="1264">+1264</option> <option data-countryCode="AG" value="1268">+1268</option> <option data-countryCode="AR" value="54">+54</option> <option data-countryCode="AM" value="374">+374</option> <option data-countryCode="AW" value="297">+297</option> <option data-countryCode="AU" value="61">+61</option> <option data-countryCode="AT" value="43">+43</option> <option data-countryCode="AZ" value="994">+994</option> <option data-countryCode="BS" value="1242">+1242</option> <option data-countryCode="BH" value="973">+973</option> <option data-countryCode="BD" value="880">+880</option> <option data-countryCode="BB" value="1246">+1246</option> <option data-countryCode="BY" value="375">+375</option> <option data-countryCode="BE" value="32">+32</option> <option data-countryCode="BZ" value="501">+501</option> <option data-countryCode="BJ" value="229">+229</option> <option data-countryCode="BM" value="1441">+1441</option> <option data-countryCode="BT" value="975">+975</option> <option data-countryCode="BO" value="591">+591</option> <option data-countryCode="BA" value="387">+387</option> <option data-countryCode="BW" value="267">+267</option> <option data-countryCode="BR" value="55">+55</option> <option data-countryCode="BN" value="673">+673</option> <option data-countryCode="BG" value="359">+359</option> <option data-countryCode="BF" value="226">+226</option> <option data-countryCode="BI" value="257">+257</option> <option data-countryCode="KH" value="855">+855</option> <option data-countryCode="CM" value="237">+237</option> <option data-countryCode="CA" value="1">+1</option> <option data-countryCode="CV" value="238">+238</option> <option data-countryCode="KY" value="1345">+1345</option> <option data-countryCode="CF" value="236">+236</option> <option data-countryCode="CL" value="56">+56</option> <option data-countryCode="CN" value="86">+86</option> <option data-countryCode="CO" value="57">+57</option> <option data-countryCode="KM" value="269">+269</option> <option data-countryCode="CG" value="242">+242</option> <option data-countryCode="CK" value="682">+682</option> <option data-countryCode="CR" value="506">+506</option> <option data-countryCode="HR" value="385">+385</option> <option data-countryCode="CU" value="53">+53</option> <option data-countryCode="CY" value="90392">+90392</option> <option data-countryCode="CY" value="357">+357</option> <option data-countryCode="CZ" value="42">+42</option> <option data-countryCode="DK" value="45">+45</option> <option data-countryCode="DJ" value="253">+253</option> <option data-countryCode="DM" value="1809">+1809</option> <option data-countryCode="DO" value="1809">+1809</option> <option data-countryCode="EC" value="593">+593</option> <option data-countryCode="EG" value="20">+20</option> <option data-countryCode="SV" value="503">+503</option> <option data-countryCode="GQ" value="240">+240</option> <option data-countryCode="ER" value="291">+291</option> <option data-countryCode="EE" value="372">+372</option> <option data-countryCode="ET" value="251">+251</option> <option data-countryCode="FK" value="500">+500</option> <option data-countryCode="FO" value="298">+298</option> <option data-countryCode="FJ" value="679">+679</option> <option data-countryCode="FI" value="358">+358</option> <option data-countryCode="FR" value="33">+33</option> <option data-countryCode="GF" value="594">+594</option> <option data-countryCode="PF" value="689">+689</option> <option data-countryCode="GA" value="241">+241</option> <option data-countryCode="GM" value="220">+220</option> <option data-countryCode="GE" value="7880">+7880</option> <option data-countryCode="DE" value="49">+49</option> <option data-countryCode="GH" value="233">+233</option> <option data-countryCode="GI" value="350">+350</option> <option data-countryCode="GR" value="30">+30</option> <option data-countryCode="GL" value="299">+299</option> <option data-countryCode="GD" value="1473">+1473</option> <option data-countryCode="GP" value="590">+590</option> <option data-countryCode="GU" value="671">+671</option> <option data-countryCode="GT" value="502">+502</option> <option data-countryCode="GN" value="224">+224</option> <option data-countryCode="GW" value="245">+245</option> <option data-countryCode="GY" value="592">+592</option> <option data-countryCode="HT" value="509">+509</option> <option data-countryCode="HN" value="504">+504</option> <option data-countryCode="HK" value="852">+852</option> <option data-countryCode="HU" value="36">+36</option> <option data-countryCode="IS" value="354">+354</option> <option data-countryCode="IN" value="91">+91</option> <option data-countryCode="ID" value="62">+62</option> <option data-countryCode="IR" value="98">+98</option> <option data-countryCode="IQ" value="964">+964</option> <option data-countryCode="IE" value="353">+353</option> <option data-countryCode="IL" value="972">+972</option> <option data-countryCode="IT" value="39">+39</option> <option data-countryCode="JM" value="1876">+1876</option> <option data-countryCode="JP" value="81">+81</option> <option data-countryCode="JO" value="962">+962</option> <option data-countryCode="KZ" value="7">+7</option> <option data-countryCode="KE" value="254">+254</option> <option data-countryCode="KI" value="686">+686</option> <option data-countryCode="KP" value="850">+850</option> <option data-countryCode="KR" value="82">+82</option> <option data-countryCode="KW" value="965">+965</option> <option data-countryCode="KG" value="996">+996</option> <option data-countryCode="LA" value="856">+856</option> <option data-countryCode="LV" value="371">+371</option> <option data-countryCode="LB" value="961">+961</option> <option data-countryCode="LS" value="266">+266</option> <option data-countryCode="LR" value="231">+231</option> <option data-countryCode="LY" value="218">+218</option> <option data-countryCode="LI" value="417">+417</option> <option data-countryCode="LT" value="370">+370</option> <option data-countryCode="LU" value="352">+352</option> <option data-countryCode="MO" value="853">+853</option> <option data-countryCode="MK" value="389">+389</option> <option data-countryCode="MG" value="261">+261</option> <option data-countryCode="MW" value="265">+265</option> <option data-countryCode="MY" value="60">+60</option> <option data-countryCode="MV" value="960">+960</option> <option data-countryCode="ML" value="223">+223</option> <option data-countryCode="MT" value="356">+356</option> <option data-countryCode="MH" value="692">+692</option> <option data-countryCode="MQ" value="596">+596</option> <option data-countryCode="MR" value="222">+222</option> <option data-countryCode="YT" value="269">+269</option> <option data-countryCode="MX" value="52">+52</option> <option data-countryCode="FM" value="691">+691</option> <option data-countryCode="MD" value="373">+373</option> <option data-countryCode="MC" value="377">+377</option> <option data-countryCode="MN" value="976">+976</option> <option data-countryCode="MS" value="1664">+1664</option> <option data-countryCode="MA" value="212">+212</option> <option data-countryCode="MZ" value="258">+258</option> <option data-countryCode="MN" value="95">+95</option> <option data-countryCode="NA" value="264">+264</option> <option data-countryCode="NR" value="674">+674</option> <option data-countryCode="NP" value="977">+977</option> <option data-countryCode="NL" value="31">+31</option> <option data-countryCode="NC" value="687">+687</option> <option data-countryCode="NZ" value="64">+64</option> <option data-countryCode="NI" value="505">+505</option> <option data-countryCode="NE" value="227">+227</option> <option data-countryCode="NG" value="234">+234</option> <option data-countryCode="NU" value="683">+683</option> <option data-countryCode="NF" value="672">+672</option> <option data-countryCode="NP" value="670">+670</option> <option data-countryCode="NO" value="47">+47</option> <option data-countryCode="OM" value="968">+968</option> <option data-countryCode="PW" value="680">+680</option> <option data-countryCode="PA" value="507">+507</option> <option data-countryCode="PG" value="675">+675</option> <option data-countryCode="PY" value="595">+595</option> <option data-countryCode="PE" value="51">+51</option> <option data-countryCode="PH" value="63">+63</option> <option data-countryCode="PL" value="48">+48</option> <option data-countryCode="PT" value="351">+351</option> <option data-countryCode="PR" value="1787">+1787</option> <option data-countryCode="QA" value="974">+974</option> <option data-countryCode="RE" value="262">+262</option> <option data-countryCode="RO" value="40">+40</option> <option data-countryCode="RU" value="7">+7</option> <option data-countryCode="RW" value="250">+250</option> <option data-countryCode="SM" value="378">+378</option> <option data-countryCode="ST" value="239">+239</option> <option data-countryCode="SA" value="966">+966</option> <option data-countryCode="SN" value="221">+221</option> <option data-countryCode="CS" value="381">+381</option> <option data-countryCode="SC" value="248">+248</option> <option data-countryCode="SL" value="232">+232</option> <option data-countryCode="SG" value="65">+65</option> <option data-countryCode="SK" value="421">+421</option> 
+                            <option data-countryCode="SI" value="386">+386</option> <option data-countryCode="SB" value="677">+677</option> <option data-countryCode="SO" value="252">+252</option> <option data-countryCode="ZA" value="27">+27</option> <option data-countryCode="ES" value="34">+34</option> <option data-countryCode="LK" value="94">+94</option> <option data-countryCode="SH" value="290">+290</option> <option data-countryCode="KN" value="1869">+1869</option> <option data-countryCode="SC" value="1758">+1758</option> <option data-countryCode="SD" value="249">+249</option> <option data-countryCode="SR" value="597">+597</option> <option data-countryCode="SZ" value="268">+268</option> <option data-countryCode="SE" value="46">+46</option> <option data-countryCode="CH" value="41">+41</option> <option data-countryCode="SI" value="963">+963</option> <option data-countryCode="TW" value="886">+886</option> <option data-countryCode="TJ" value="7">+7</option> <option data-countryCode="TH" value="66">+66</option> <option data-countryCode="TG" value="228">+228</option> <option data-countryCode="TO" value="676">+676</option> <option data-countryCode="TT" value="1868">+1868</option> <option data-countryCode="TN" value="216">+216</option> <option data-countryCode="TR" value="90">+90</option> <option data-countryCode="TM" value="7">+7</option> <option data-countryCode="TM" value="993">+993</option> <option data-countryCode="TC" value="1649">+1649</option> <option data-countryCode="TV" value="688">+688</option> <option data-countryCode="UG" value="256">+256</option> <option data-countryCode="GB" value="44">+44</option> <option data-countryCode="UA" value="380">+380</option> <option data-countryCode="AE" value="971">+971</option> <option data-countryCode="UY" value="598">+598</option> <option data-countryCode="US" value="1">+1</option> <option data-countryCode="UZ" value="7">+7</option> <option data-countryCode="VU" value="678">+678</option> <option data-countryCode="VA" value="379">+379</option> <option data-countryCode="VE" value="58">+58</option> <option data-countryCode="VN" value="84">+84</option> <option data-countryCode="VG" value="84">+1284</option> <option data-countryCode="VI" value="84">+1340</option> <option data-countryCode="WF" value="681">+681</option> <option data-countryCode="YE" value="969">+969</option> <option data-countryCode="YE" value="967">+967</option> <option data-countryCode="ZM" value="260">+260</option> <option data-countryCode="ZW" value="263">+263</option> </select>
+                        </select>
+                        <input type="number" id="phone_num" placeholder="phone number">
+                    </div>
+                    <input type="email" id="email" autocomplete="on" placeholder="Enter your email">
+                    <input type="password" id="password" placeholder="Password">
+                    <input type="password" autocomplete="off" id="confirm_password" placeholder="Confirm Password">
+                    <br>
+                    <p id="error"></p>
+                    <br>
+                    <button id="button3">Join</button>
+                </form>
+                <p id="gologin">Already have an account?, <a href="login.html">Login</a></p>
+                <!-- <hr id="spliter">
+                <p id="continue-with"> or continue with</p>
+                <div class="other-signins">
+                    <div class="google">
+                        <img src="media/icons/Google.png" class="icon">
+                    </div>
+                    <div class="apple">
+                        <img src="media/icons/apple.png" class="icon">
+                    </div>
+                    <div class="fb">
+                        <img src="media/icons/fb.png" class="icon">
+                    </div>
+                </div> -->
+            </div>
+            <div class="left">
+                <img src="media/map.jpg" id="map" draggable="false">
+                <i class="fa-solid fa-location-pin markers"></i>
+                <i class="fa-solid fa-location-pin markers"></i>
+                <i class="fa-solid fa-location-pin markers"></i>
+                <i class="fa-solid fa-location-pin markers"></i>
+                <i class="fa-solid fa-location-pin markers"></i>
+                <i class="fa-solid fa-location-pin markers"></i>
+                <i class="fa-solid fa-location-pin markers"></i>
+            </div>
+        </div>
+
+        <footer>
+            <p>Tracker, Inc.</p>
+        </footer>
+    </body>
+    <script type="module">
+        // export the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc, collection, updateDoc } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js"; 
+
+        //import Cookies from '../js_modules/js.cookie.mjs';
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAgEwhwL0DpPUETZf2evitXu_O_kr6OXZc",
+            authDomain: "tracker-ac475.firebaseapp.com",
+            projectId: "tracker-ac475",
+            storageBucket: "tracker-ac475.appspot.com",
+            messagingSenderId: "149153242441",
+            appId: "1:149153242441:web:5d23c869a764264d544e98"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth();
+        let db = getFirestore(app);
+
+        var button = document.getElementById("button3");
+        var position;
+
+        function valid_fields(){
+            var first_name = document.getElementById("first_name").value;
+            var last_name = document.getElementById("last_name").value;
+            var phone_prefix = document.getElementById("phone_prefix").value;
+            var phone_num = document.getElementById("phone_num").value;
+            var emailAdress = document.getElementById("email").value;
+            var pass = document.getElementById("password").value;
+            var pass2 = document.getElementById("confirm_password").value;
+
+            let regex_email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;///^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+            let regex_phone = /^[0-9]{9}$/;
+
+        if (emailAdress.match(regex_email) != null && pass.length > 5 && pass == pass2 && phone_num.match(regex_phone)){
+                document.getElementById('error').innerHTML = "";
+                //console.log("name:" ,first_name ,last_name ,"\nphone num:",phone_prefix + phone_num ,"\email:", emailAdress ,"\npass1:", pass,"\tpass2:", pass2)
+            return true; 
+        }
+        else{
+            if (first_name == "" || last_name == "" || phone_num == "" || emailAdress == "" || pass == "" || pass2 == ""){
+                document.getElementById('error').innerHTML = 'please fill all the blanks <i class="fa-regular fa-keyboard"></i>'
+            } 
+            else{
+                if(pass != pass2){
+                    document.getElementById('error').innerHTML = 'password dont match <i class="fa-solid fa-not-equal"></i>'
+                }
+                if (pass.length < 6){
+                document.getElementById('error').innerHTML = 'password is too short <i class="fa-solid fa-xmark"></i>'
+                }
+                if (phone_num.match(regex_phone) == null){
+                document.getElementById('error').innerHTML = 'invalid phone number <i class="fa-regular fa-envelope"></i>'
+                }
+                if (emailAdress.match(regex_email) == null){
+                document.getElementById('error').innerHTML = 'invalid email <i class="fa-regular fa-envelope"></i>'
+                }
+            }
+            return false;
+        } 
+        }
+
+        button.addEventListener("mouseover", function (){
+            if(valid_fields()){
+                //signin()
+            }
+            else{
+                position == 0 ? (position = 100) : position == 100 ? (position = -100) : (position=0);
+                button.style.transform = "translate(" + position + "px, 0px)";
+                button.style.transition = "all 0.3s ease";
+            }
+        })
+
+        function change_button(val){
+            if (val){
+                document.getElementById('button3').disabled = true;
+                document.getElementById('button3').innerHTML = '<i class="fa fa-circle-o-notch fa-spin"></i>Loading';
+            }
+            else{
+                document.getElementById('button3').disabled = false;
+                document.getElementById('button3').innerHTML = 'Join';
+            }
+            
+        }
+
+        $('#button3').click(function() { 
+    
+            var email = $('#email');    
+            var pass = $('#password');
+            var pass2 = $('confirm_password')
+            var first_name = $('#first_name');
+            var last_name =  $('#last_name');
+            
+            if(valid_fields()){
+                change_button(true)  
+                createUserWithEmailAndPassword(auth, email.val(), pass.val()).then(function(user){
+                    console.log('everything went fine');
+
+                    //console.log(email.val() + "\t" + pass.val() + "\t" + first_name.val() + "\t" + last_name.val())
+
+                    //save the user data here.
+                    //Cookies.set('Userid', user.user.uid);
+
+                    //console.log(Cookies.get("Userid"));
+                    add_user_info(user.user.uid);
+                }).catch(function(error) {
+                    var errorCode = error.code;
+                    console.log(errorCode);
+                    if(errorCode == "auth/email-already-in-use"){
+                        document.getElementById('error').innerHTML = 'Email already in use <i class="fa-regular fa-envelope"></i>'
+                    }
+                    else{
+                        document.getElementById('error').innerHTML = errorCode + '<i class="fa-solid fa-xmark"></i>';
+                    }
+                    change_button(false)
+                });
+            }
+            else{
+                console.log("wrong fields");
+                change_button(false)
+            }
+        });
+
+
+        async function add_user_info(id){
+            await setDoc(doc(db, "users", id), {
+                user_id: id,
+                first_name: $('#first_name').val(),
+                last_name: $('#last_name').val(),
+                email: $('#email').val(),
+                phone_number: $('#phone_prefix').val() + $('#phone_num').val(),
+            }).then(writeResult => {
+
+                // wait for update to complete and display WriteResult
+                console.log("promise=\t" + writeResult);
+                window.location.href = "dashboard.html";
+
+            });
+        }
+
+        // random marker placement
+        var divs = document.getElementsByClassName("markers");
+
+        function centerImages() {
+        var image1 = document.getElementById("map");
+        var rect1 = image1.getBoundingClientRect();
+        var cx = rect1.left + rect1.width * 0.5 - 600;    // find center of first image
+        var cy = rect1.top + rect1.height * 0.5 -200;
+        //console.log("x: " + cx + " y: " + cy)
+
+        
+        for(var i = 0; i < divs.length; i++){
+            if(i==0){
+                divs[i].style.position = "absolute";
+                divs[i].style.left = cx+'px';
+                divs[i].style.top = cy+'px';
+                divs[i].style.color = 'red';
+            }
+            else {
+                //console.log(divs[i])
+                divs[i].style.position = "absolute";
+                divs[i].style.left = cx+rand_pos(rect1.width/2-30)+'px';
+                divs[i].style.top = cy+rand_pos(rect1.width/2-30)+'px';
+                divs[i].style.color = getRandomColor();
+            }
+        }
+        }
+
+        setInterval(centerImages, 3000);
+
+        function move_markers(){
+        
+            for(var i = 0; i < divs.length; i++){
+                divs[i].style.transform = "translate(" + rand_pos2() + "px, "+ rand_pos2() +" px)";
+            }
+        }
+
+        function rand_pos(width){
+            return Math.floor(Math.random() * (width - (-width) + 1)) + (-width);
+        }
+        function rand_pos2(){
+            return Math.floor(Math.random() * (10 - (-10) + 1)) + (-10);
+        }
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        window.onload = window.onresize = centerImages;
+
+        $('#show').click(function() {
+            if($('#passshow').is(':checked')){
+                $('#passshow').prop('checked', false);
+            }
+            else{
+                $('#passshow').prop('checked', true);
+            }
+        })
+
+        $('#login_btn').click(function() {
+            window.location.href = "login.html"
+        })
+        
+    </script>
+    </html>

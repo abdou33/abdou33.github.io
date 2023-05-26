@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<style>
+    @font-face {
+        font-family: 'RobotoMono';
+        src: url(fonts/Roboto_Mono/static/RobotoMono-Bold.ttf);
+    }
+    *{
+        margin: 0;
+        font-family: "RobotoMono";
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active{-webkit-box-shadow: 0 0 0 30px rgb(235, 235, 235) inset !important;
+    }
+    body{
+        background-color: rgb(232, 242, 251);
+        overflow-y: hidden;
+    }
+    .header{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content:space-evenly;
+        align-items: center;
+        top: 0;
+        position: fixed;
+
+        /* margin-bottom: 10px; */
+    }
+    #logo{
+        width: 95px;
+        margin-right: 20px;
+    }
+    .right_elements{
+        display: flex;
+        gap: 50px;
+        align-items: center;
+    }
+    .right_elements a{
+        text-decoration: none;
+        color: black;
+    }
+    .left_elements{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+    .left_elements *{
+        color: black;
+    }
+    #register_btn{
+        padding: 7px 20px 7px 20px ;
+        border-radius: 50vw;
+    }
+    /* .principal{
+        display: flex;
+        width: 100%;
+    } */
+    .principal{
+            display: block;
+            width: 100%;
+            color: black;
+        }
+
+    /* .right{
+        margin-top: 20px;
+        width: 50%;
+        display: inline-block center;
+        text-align:center;
+    } */
+    .right{
+        width: 100%;
+        display: block;
+        /* padding-top: 8%;*/
+        padding-top: 20px;
+        width: 50%;
+        display: inline-block center;
+        text-align:center;
+        margin: auto;
+        }
+    .right h2{
+        font-weight: 100;
+        margin-bottom: 20px;
+        margin-top: 10%;
+    }
+    #email,#password{
+        width: 50%;
+        height: 30%;
+        border-radius: 10px;
+        padding:15px;
+        margin-top: 15px;
+        background-color: rgb(235, 235, 235);
+        border: none;
+    }
+    #remember, #showpass{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
+        margin: auto;
+        white-space: nowrap;
+        margin-left: 25%;
+        margin-top: 10px;
+        font-size: 17px;
+    }
+    #remember input[type='checkbox'],#showpass input[type='checkbox'],label{
+        margin: 0;
+        padding: 0;
+    }
+    /* form{
+        margin-bottom: 10px;
+    } */
+    .right form{
+            margin: auto;
+            width: 100%;
+           /* background-color: rgba(0, 0, 0, 0.062);*/
+            border-radius: 1vw;
+            padding: 2% 0 2% 0;
+        }
+    #error{
+        color: red;
+        font-size: 10px;
+    }
+    #button3{
+        border-radius: 50vw;
+        padding: 5px 13px 5px 13px;
+    }
+    #button3 i{
+        margin: 0 3px 0 3px;
+    }
+    #button3:hover, #register_btn:hover{
+        cursor: pointer;
+    }
+    #recoverpass{
+        color: black;
+    }
+    #createacc{
+        font-size: 15px !important;
+        margin-top: 10px;
+    }
+    #spliter{
+        width: 60%;
+        margin: 4% auto 4% auto;
+    }
+    .right #continue-with{
+        font-size: 15px;
+        margin-top: 0 !important;
+    }
+    .icon{
+        width: 20px;
+    }
+    /* .left{
+        width: 50%;
+        display: flex;
+        position: relative;
+        justify-content: center;
+    } */
+    .left{
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            opacity: 0.28;;
+        }
+    /* #map{
+        width: 60%;
+        position: relative;
+        z-index: -1;
+    } */
+    #map{
+            width: 100%;
+        }
+    .left .markers{
+        position: absolute;
+        top: 30px;
+        left: 600px;
+        margin: auto;
+        color: red;
+        font-size: 25px;
+        z-index: 3;
+        transition: all 1s ease-in-out;
+    }
+    footer{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        bottom: 0;
+        position: fixed;
+        border-top: black 2px solid;
+        padding: 10px;
+    }
+
+    @media screen and (max-width:800px) {
+        body{
+            overflow-y: hidden;
+        }
+        .header{
+            font-size: 2vw;
+            border-bottom: black 2px solid;
+        }
+        #logo{
+            width: 50px;
+            margin-right: 20px;
+        }
+
+        .right_elements{
+            width: 60%;
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+        .right_elements a{
+            font-size: 2.5vw;
+            text-decoration: none;
+            color: black;
+        }
+        .nophone{
+            display: none;
+        }
+        #register_btn{
+            padding: 3px 10px 3px 10px ;
+            border-radius: 50vw;
+        }
+        .principal{
+            display: block;
+            width: 100%;
+            color: black;
+        }
+        .principal p:not(#error){
+            font-size: 10vw;
+        }
+        .right{
+            width: 100%;
+            display: block;
+           /* padding-top: 8%;*/
+        }
+        .right input:not([type=checkbox]){
+            width: 100%;
+        }
+        .right #continue-with{
+            margin-top: 5%;
+            font-size: 15px !important;
+        }
+        .left{
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            opacity: 0.28;;
+        }
+        #map{
+            width: 100%;
+        }
+        .right form{
+            margin: auto;
+            width: 100%;
+           /* background-color: rgba(0, 0, 0, 0.062);*/
+            border-radius: 1vw;
+            padding: 2% 0 2% 0;
+        }
+        
+    }
+</style>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <script src="js_modules/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/423a3b3e3b.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/font-awesome.min.css">
+        <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.css"> -->
+    </head>
+    <body id="body">
+        <div class="header">
+            <img src="media/logo.png" id="logo">
+                <div class="right_elements">
+                    <a href="about.html">About</a>
+                    <a href="safety.html" class="nophone">data safety</a>
+                    <a href="termofuse.html" class="nophone">service terms</a>
+                    <a href="resources.html">resources</a>
+                    <a href="clients.html" >Support</a>
+                </div>
+                <!-- <div class="right_elements">
+                    <h3 style="text-decoration: underline;">Sign in</h3>
+                    <button id="register_btn">Register</button>
+                </div> -->
+        </div>
+        <div class="principal">
+            <div class="left">
+                <img src="media/map.jpg" id="map" draggable="false">
+                <i class="fa-solid fa-location-pin markers"></i>
+                <i class="fa-solid fa-location-pin markers"></i>
+                <i class="fa-solid fa-location-pin markers"></i>
+                <i class="fa-solid fa-location-pin markers"></i>
+                <i class="fa-solid fa-location-pin markers"></i>
+                <i class="fa-solid fa-location-pin markers"></i>
+                <i class="fa-solid fa-location-pin markers"></i>
+            </div>
+            <div class="right">
+                <h2>Login</h2>
+                <form onsubmit="return false;">
+                    <input type="email" id="email" autocomplete="on" placeholder="Enter your email">
+                    <input type="password" id="password" placeholder="Password">
+                    <div id="showpass">
+                        <input type="checkbox" id="passshow"> 
+                        <label id="show">show password</label>
+                    </div>
+                    <div id="remember">
+                        <input type="checkbox"> 
+                        <label>remember me</label>
+                    </div>
+                    <br>
+                    <p id="error"></p>
+                    <br>
+                    <button id="button3">Login</button>
+                </form>
+                <a href="index.html" id="recoverpass">Recover password</a>
+                <p id="createacc">Dont have an account?, <a href="register.html">Signup</a> now</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Tracker, Inc.</p>
+        </footer>
+    </body>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="module">
+        // export the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc, collection, updateDoc } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js"; 
+
+        import Cookies from '../js_modules/js.cookie.mjs';
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAgEwhwL0DpPUETZf2evitXu_O_kr6OXZc",
+            authDomain: "tracker-ac475.firebaseapp.com",
+            projectId: "tracker-ac475",
+            storageBucket: "tracker-ac475.appspot.com",
+            messagingSenderId: "149153242441",
+            appId: "1:149153242441:web:5d23c869a764264d544e98"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth();
+        var button = document.getElementById("button3");
+        var position;
+
+
+
+        $('#passshow, #show').click(function() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+            });
+
+        function valid_fields(){
+            var emailAdress = document.getElementById("email").value;
+            var pass = document.getElementById("password").value;
+            let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        if (emailAdress.match(regex) != null && pass.length > 5){
+            if (document.getElementById('error').value = ""){
+                document.getElementById('error').innerHTML = "";
+            }
+            return true; 
+        }
+        else{
+            if (emailAdress.match(regex) == null && pass.length < 6){
+                document.getElementById('error').innerHTML = 'please check your email and password <i class="fa-solid fa-xmark"></i>'
+            } 
+            else{
+                if (pass.length < 6){
+                document.getElementById('error').innerHTML = 'password is short <i class="fa-solid fa-xmark"></i>'
+            }
+                if (emailAdress.match(regex) == null){
+                document.getElementById('error').innerHTML = 'invalid email <i class="fa-regular fa-envelope"></i>'
+            }
+            }
+            return false;
+        } 
+        }
+
+        button.addEventListener("mouseover", function (){
+            console.log("hovered")
+            if(valid_fields()){
+                //signin()
+            }
+            else{
+                position == 0 ? (position = 100) : position == 100 ? (position = -100) : (position=0);
+                button.style.transform = "translate(" + position + "px, 0px)";
+                button.style.transition = "all 0.3s ease";
+            }
+        })
+
+        function change_button(val){
+            if (val){
+                document.getElementById('button3').disabled = true;
+                document.getElementById('button3').innerHTML = '<i class="fa fa-circle-o-notch fa-spin"></i>Loading';
+            }
+            else{
+                document.getElementById('button3').disabled = false;
+                document.getElementById('button3').innerHTML = 'Join';
+            }
+            
+        }
+
+        $('#button3').click(function() {
+
+                      
+    
+            var email = $('#email');    
+            var pass = $('#password');
+            //email.val() && pass.val()
+            if(valid_fields()){
+
+                change_button(true)  
+                signInWithEmailAndPassword(auth, email.val(), pass.val()).then(userCredential => {
+                    console.log('everything went fine');
+                    console.log("user ID:\t"+userCredential.user);
+
+                    //save the user data here.
+                    //Cookies.set('Userid', userCredential.user.uid);
+                    if(userCredential != null){
+                        window.location.href = "dashboard.html";
+                    }
+
+                    //console.log(Cookies.get("Userid"));
+                }).catch(function(error) {
+                    console.log('there was an error');
+                    console.log(error.code);
+                    //
+                    //
+                    if(error.code == "auth/user-not-found"){
+                        document.getElementById('error').innerHTML = 'user not found <i class="fa-solid fa-xmark"></i>';
+                        change_button(false) 
+                    }
+                    else if(error.code == "auth/wrong-password"){
+                        document.getElementById('error').innerHTML = 'wrong password <i class="fa-solid fa-lock"></i>';
+                        change_button(false) 
+                    }
+                    else{
+                        document.getElementById('error').innerHTML = 'there was a problem <i class="fa-regular fa-face-frown"></i>';
+                        change_button(false) 
+                    }
+                });
+
+            }
+            else{
+                change_button(false)  
+            }
+        });
+
+        // random marker placement
+        var divs = document.getElementsByClassName("markers");
+
+        function centerImages() {
+        var image1 = document.getElementById("map");
+        var rect1 = image1.getBoundingClientRect();
+        var cx = rect1.left + rect1.width * 0.5;    // find center of first image
+        var cy = rect1.top + rect1.height * 0.5 - 100;
+        //console.log("x: " + cx + " y: " + cy)
+
+        
+        for(var i = 0; i < divs.length; i++){
+            if(i==0){
+                divs[i].style.position = "absolute";
+                divs[i].style.left = cx+'px';
+                divs[i].style.top = cy+'px';
+                divs[i].style.color = 'red';
+            }
+            else {
+                //console.log(divs[i])
+                divs[i].style.position = "absolute";
+                divs[i].style.left = cx+rand_pos(rect1.width/2-30)+'px';
+                divs[i].style.top = cy+rand_pos(rect1.width/2-30)+'px';
+                divs[i].style.color = getRandomColor();
+            }
+        }
+        }
+
+        setInterval(centerImages, 3000);
+
+        function move_markers(){
+        
+            for(var i = 0; i < divs.length; i++){
+                divs[i].style.transform = "translate(" + rand_pos2() + "px, "+ rand_pos2() +" px)";
+            }
+        }
+
+        function rand_pos(width){
+            return Math.floor(Math.random() * (width - (-width) + 1)) + (-width);
+        }
+        function rand_pos2(){
+            return Math.floor(Math.random() * (10 - (-10) + 1)) + (-10);
+        }
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        window.onload = window.onresize = centerImages;
+
+        $('#show').click(function() {
+            if($('#passshow').is(':checked')){
+                $('#passshow').prop('checked', false);
+            }
+            else{
+                $('#passshow').prop('checked', true);
+            }
+        })
+
+
+        $('#register_btn').click(function() {
+            window.location.href = "register.html"
+        })
+        
+    </script>
+</html>
