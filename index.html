@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<style>
+    @font-face {
+    font-family: 'Bitwise';
+    src: url('media/fonts/Bitwise.ttf') format('truetype');
+    }  
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: "Bitwise";
+        /*cursor: url(media/crt-frame.png), auto;*/
+    }
+    #background-crt{
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        display: block;
+    }
+    html{
+
+        background-color: rgb(48, 48, 48);
+    }
+    body{
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    @keyframes flicker {
+        0% {
+        opacity: 0.27861;
+        }
+        5% {
+        opacity: 0.34769;
+        }
+        10% {
+        opacity: 0.23604;
+        }
+        15% {
+        opacity: 0.90626;
+        }
+        20% {
+        opacity: 0.18128;
+        }
+        25% {
+        opacity: 0.83891;
+        }
+        30% {
+        opacity: 0.65583;
+        }
+        35% {
+        opacity: 0.67807;
+        }
+        40% {
+        opacity: 0.26559;
+        }
+        45% {
+        opacity: 0.84693;
+        }
+        50% {
+        opacity: 0.96019;
+        }
+        55% {
+        opacity: 0.08594;
+        }
+        60% {
+        opacity: 0.20313;
+        }
+        65% {
+        opacity: 0.71988;
+        }
+        70% {
+        opacity: 0.53455;
+        }
+        75% {
+        opacity: 0.37288;
+        }
+        80% {
+        opacity: 0.71428;
+        }
+        85% {
+        opacity: 0.70419;
+        }
+        90% {
+        opacity: 0.7003;
+        }
+        95% {
+        opacity: 0.36108;
+        }
+        100% {
+        opacity: 0.24387;
+        }
+    }
+
+    @keyframes textShadow {
+        0% {
+            text-shadow: 0.4389924193300864px 0 1px rgba(0,30,255,0.5), -0.4389924193300864px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        5% {
+            text-shadow: 2.7928974010788217px 0 1px rgba(0,30,255,0.5), -2.7928974010788217px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        10% {
+            text-shadow: 0.02956275843481219px 0 1px rgba(0,30,255,0.5), -0.02956275843481219px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        15% {
+            text-shadow: 0.40218538552878136px 0 1px rgba(0,30,255,0.5), -0.40218538552878136px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        20% {
+            text-shadow: 3.4794037899852017px 0 1px rgba(0,30,255,0.5), -3.4794037899852017px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        25% {
+            text-shadow: 1.6125630401149584px 0 1px rgba(0,30,255,0.5), -1.6125630401149584px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        30% {
+            text-shadow: 0.7015590085143956px 0 1px rgba(0,30,255,0.5), -0.7015590085143956px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        35% {
+            text-shadow: 3.896914047650351px 0 1px rgba(0,30,255,0.5), -3.896914047650351px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        40% {
+            text-shadow: 3.870905614848819px 0 1px rgba(0,30,255,0.5), -3.870905614848819px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        45% {
+            text-shadow: 2.231056963361899px 0 1px rgba(0,30,255,0.5), -2.231056963361899px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        50% {
+            text-shadow: 0.08084290417898504px 0 1px rgba(0,30,255,0.5), -0.08084290417898504px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        55% {
+            text-shadow: 2.3758461067427543px 0 1px rgba(0,30,255,0.5), -2.3758461067427543px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        60% {
+            text-shadow: 2.202193051050636px 0 1px rgba(0,30,255,0.5), -2.202193051050636px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        65% {
+            text-shadow: 2.8638780614874975px 0 1px rgba(0,30,255,0.5), -2.8638780614874975px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        70% {
+            text-shadow: 0.48874025155497314px 0 1px rgba(0,30,255,0.5), -0.48874025155497314px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        75% {
+            text-shadow: 1.8948491305757957px 0 1px rgba(0,30,255,0.5), -1.8948491305757957px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        80% {
+            text-shadow: 0.0833037308038857px 0 1px rgba(0,30,255,0.5), -0.0833037308038857px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        85% {
+            text-shadow: 0.09769827255241735px 0 1px rgba(0,30,255,0.5), -0.09769827255241735px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        90% {
+            text-shadow: 3.443339761481782px 0 1px rgba(0,30,255,0.5), -3.443339761481782px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        95% {
+            text-shadow: 2.1841838852799786px 0 1px rgba(0,30,255,0.5), -2.1841838852799786px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+        100% {
+            text-shadow: 2.6208764473832513px 0 1px rgba(0,30,255,0.5), -2.6208764473832513px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+        }
+    }
+
+    @keyframes imgShadow {
+        0% {
+            filter: drop-shadow( 0.4389924193300864px 0 1px rgba(0,30,255,0.5)) drop-shadow( -0.4389924193300864px 0 1px rgba(255,0,80,0.3));
+            /*filter: drop-shadow(5px 5px 5px #222);*/
+        }
+        5% {
+            filter: drop-shadow( 2.7928974010788217px 0 1px rgba(0,30,255,0.5)) drop-shadow( -2.7928974010788217px 0 1px rgba(255,0,80,0.3));
+        }
+        10% {
+            filter: drop-shadow( 0.02956275843481219px 0 1px rgba(0,30,255,0.5)) drop-shadow( -0.02956275843481219px 0 1px rgba(255,0,80,0.3));
+        }
+        15% {
+            filter: drop-shadow( 0.40218538552878136px 0 1px rgba(0,30,255,0.5)) drop-shadow(-0.40218538552878136px 0 1px rgba(255,0,80,0.3));
+        }
+        20% {
+            filter: drop-shadow( 3.4794037899852017px 0 1px rgba(0,30,255,0.5)) drop-shadow(-3.4794037899852017px 0 1px rgba(255,0,80,0.3));
+        }
+        25% {
+            filter: drop-shadow( 1.6125630401149584px 0 1px rgba(0,30,255,0.5)) drop-shadow( -1.6125630401149584px 0 1px rgba(255,0,80,0.3));
+        }
+        30% {
+            filter: drop-shadow( 0.7015590085143956px 0 1px rgba(0,30,255,0.5)) drop-shadow( -0.7015590085143956px 0 1px rgba(255,0,80,0.3));
+        }
+        35% {
+            filter: drop-shadow( 3.896914047650351px 0 1px rgba(0,30,255,0.5)) drop-shadow( -3.896914047650351px 0 1px rgba(255,0,80,0.3));
+        }
+        40% {
+            filter: drop-shadow( 3.870905614848819px 0 1px rgba(0,30,255,0.5)) drop-shadow(-3.870905614848819px 0 1px rgba(255,0,80,0.3));
+        }
+        45% {
+            filter: drop-shadow( 2.231056963361899px 0 1px rgba(0,30,255,0.5), 0 0 3px) drop-shadow(-2.231056963361899px 0 1px rgba(255,0,80,0.3));
+        }
+        50% {
+            filter: drop-shadow( 0.08084290417898504px 0 1px rgba(0,30,255,0.5)) drop-shadow(-0.08084290417898504px 0 1px rgba(255,0,80,0.3));
+        }
+        55% {
+            filter: drop-shadow( 2.3758461067427543px 0 1px rgba(0,30,255,0.5)) drop-shadow(-2.3758461067427543px 0 1px rgba(255,0,80,0.3));
+        }
+        60% {
+            filter: drop-shadow( 2.202193051050636px 0 1px rgba(0,30,255,0.5)) drop-shadow(-2.202193051050636px 0 1px rgba(255,0,80,0.3));
+        }
+        65% {
+            filter: drop-shadow( 2.8638780614874975px 0 1px rgba(0,30,255,0.5)) drop-shadow(-2.8638780614874975px 0 1px rgba(255,0,80,0.3));
+        }
+        70% {
+            filter: drop-shadow( 0.48874025155497314px 0 1px rgba(0,30,255,0.5)) drop-shadow(-0.48874025155497314px 0 1px rgba(255,0,80,0.3));
+        }
+        75% {
+            filter: drop-shadow( 1.8948491305757957px 0 1px rgba(0,30,255,0.5)) drop-shadow(-1.8948491305757957px 0 1px rgba(255,0,80,0.3));
+        }
+        80% {
+            filter: drop-shadow( 0.0833037308038857px 0 1px rgba(0,30,255,0.5)) drop-shadow(-0.0833037308038857px 0 1px rgba(255,0,80,0.3));
+        }
+        85% {
+            filter: drop-shadow( 0.09769827255241735px 0 1px rgba(0,30,255,0.5)) drop-shadow( -0.09769827255241735px 0 1px rgba(255,0,80,0.3));
+        }
+        90% {
+            filter: drop-shadow( 3.443339761481782px 0 1px rgba(0,30,255,0.5)) drop-shadow(-3.443339761481782px 0 1px rgba(255,0,80,0.3));
+        }
+        95% {
+            filter: drop-shadow( 2.1841838852799786px 0 1px rgba(0,30,255,0.5)) drop-shadow(-2.1841838852799786px 0 1px rgba(255,0,80,0.3));
+        }
+        100% {
+            filter: drop-shadow( 2.6208764473832513px 0 1px rgba(0,30,255,0.5)) drop-shadow(-2.6208764473832513px 0 1px rgba(255,0,80,0.3));
+        }
+    }
+
+
+    #terminal{
+        height: 80vh;
+        width: 85vw;
+        
+        padding: 2vw;
+        /*border-radius: 7vw;*/
+
+        overflow:scroll;
+        flex-direction: column-reverse;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    #terminal p, h2, #svg{
+        font-size: 2vw;
+        padding: 2vw 0 0 30px ;
+        color: #20C20E;
+        text-shadow: 0 0 15px #C8C8C8;
+        animation: textShadow 1.6s infinite;
+        padding-bottom: 0;
+        white-space: normal;
+        word-wrap: break-word; 
+    }
+    #terminal::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        /*background: repeating-linear-gradient(
+            0deg,
+            rgba(black, 0.15),
+            rgba(black, 0.15) 1px,
+            transparent 1px,
+            transparent 2px
+        );*/
+    }
+
+    #terminal::after {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        /*background: rgba(18, 16, 16, 0.1);*/
+        opacity: 0;
+        z-index: 2;
+        pointer-events: none;
+        animation: flicker 0.15s infinite;
+    }
+    #welcome{
+        display: flex;
+    }
+    .text{
+        width: 60%;
+    }
+    .pic{
+        width: 40%;
+    }
+    video{
+        width: 200px;
+        height: 200px;
+    }
+    #svg{
+        width: 70%;
+        /*animation: flicker 0.05s infinite;*/
+        /*filter: drop-shadow( 2.3758461067427543px 0 1px rgba(0,30,255,0.5)) drop-shadow( -2.8638780614874975px 0 1px rgba(255,0,80,0.3));*/
+        animation: imgShadow  1.6s infinite;
+        margin: 0;
+    }
+
+    #svg:hover{
+        transform: rotate(45deg);
+    }
+
+    .blinking {
+        animation: blinker 1s linear infinite;
+        font-family: "Bitwise";
+    }
+
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+</style>
+<style>
+    html,body { margin: 0; overflow: hidden; }
+    #gui { position : absolute; top : 0; left : 0; }  
+    </style>
+<html>
+    <head>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+    </head>
+    <body>
+        <img src="media/crt-frame.png" id="background-crt" draggable="false">
+        <div id="terminal">
+            <div id="welcome">
+                <div class="text">
+                    <p>Hi there</p>
+                    <h2>I'm  Abdellah</h2>
+                    <p>Welcome to my portfolio, iam a </p>
+                    <p>- passionate web and mobile Developer</p>
+                    <p>- 3D artist (semi professional in blender)</p>
+                    <p>type help to see the commands</p>
+                </div>
+                <div class="pic">
+                    <!--<video src="media/0001-0100.mp4" alt="" oncontextmenu="return false;" autoplay loop muted></video>-->
+                    <img src="media/green-medium-multiple1.svg" id="svg" draggable="false">
+                </div>
+            </div>
+            <p class="command">abdou@desktop:~$ &#9646;</p>
+        </div>
+    </body>
+
+    <script>
+
+        var directory = 0;
+        var prefix = '<p class="command">abdou@desktop:~$ </p>'
+
+        var title = "<div id='welcome'><div class='text'><p>Hi there</p><br><h2>I'm Abdellah</h2><p>welcome to my portfolioiam a: </p><p>- passionate web and mobile Developer</p><p>- 3D artist (semi professional in blender)</p></div><div class='pic'><img src='media/green-medium-multiple1.svg' id='svg' draggable='false'></div></div>"
+        var about = "<p>Abdellah bouchama a 3rd year license student, very passionate about the newest technologies out there, a fullstack web dev and a mobile apps developer using flutter framework, i have worked with a varios of programming languegse on multiple projects like python/bash/js, <br> my github account: https://github.com/abdou33</p>"
+        var contact = "<p>My github account:  https://github.com/abdou33</p><p>Linkdin: https://www.linkedin.com/in/abdou33</p><p>Email: abdellah.bouchama@cuillizi.dz</p>"
+        var projects = ["<p>1</p>","<p>2</p>","<p>3</p>"]
+
+        document.addEventListener('keyup', (e) => {
+            el = document.querySelectorAll(".command:last-child")
+            var lastLiItem = document.querySelectorAll(".command:nth-last-of-type(1)");
+            // console.log(e.code)
+
+            if(e.code == "Backspace"){
+                if (lastLiItem[0].textContent.slice(-2) != " ▮" && lastLiItem[0].textContent.slice(-2) != "$▮"){
+                    if(lastLiItem[0].textContent.slice(-1) == "▮"){
+                        lastLiItem[0].textContent = lastLiItem[0].textContent.substring(0, lastLiItem[0].textContent.length - 2);
+                        lastLiItem[0].textContent += "▮"
+                    }
+                }
+            }
+            else if((e.code.includes("Key") || e.code.includes("Numpad") || e.code.includes("Digit")) && e.code != "NumpadEnter"){
+                // remove the typing cursor
+                if(lastLiItem[0].textContent.slice(-1) == "▮"){
+                    lastLiItem[0].textContent = lastLiItem[0].textContent.substring(0, lastLiItem[0].textContent.length - 1);
+                }
+                lastLiItem[0].textContent += e.key + "▮";
+            }
+            else if(e.code == "Space"){
+                if(lastLiItem[0].textContent.slice(-1) == "▮"){
+                    lastLiItem[0].textContent = lastLiItem[0].textContent.substring(0, lastLiItem[0].textContent.length - 1);
+                }
+                lastLiItem[0].innerHTML = lastLiItem[0].textContent + "&nbsp" + "▮";
+            }
+            else if(e.code == "ArrowUp" || e.code == "ArrowDown"){
+                upanddown(e.code)
+            }
+            else if(e.code == "Enter" || e.code == "NumpadEnter"){
+                if(lastLiItem[0].textContent.slice(-1) == "▮"){
+                    lastLiItem[0].textContent = lastLiItem[0].textContent.substring(0, lastLiItem[0].textContent.length - 1);
+                }
+                validate_command(lastLiItem[0].textContent)
+            }
+        });
+
+        function change_prefix(){
+
+            //console.log("directory num= "+ directory)
+            if(directory == 0){
+                prefix = '<p class="command">abdou@desktop:~$ ▮</p>'
+                console.table(prefix)
+                output(prefix)
+            }
+            if(directory == 1){
+                prefix = '<p class="command">abdou@desktop:~/title$ ▮</p>'
+                output(prefix)
+            }
+            if(directory == 2){
+                prefix = '<p class="command">abdou@desktop:~/about$ ▮</p>'
+                output(prefix)
+            }
+            if(directory == 3){
+                prefix = '<p class="command">abdou@desktop:~/projects$ ▮</p>'
+                output(prefix)
+            }
+            if(directory == 4){
+                prefix = '<p class="command">abdou@desktop:~/contacts$ ▮</p>'
+                output(prefix)
+            }
+        }
+
+        function change_directory(command){
+            //console.log(command)
+            //console.log(directory)
+            if(directory == 0){
+                //console.log("true")
+                if(command == "cd title"){
+                    commands_history.push("cd title")
+                    directory = 1;
+                }
+                else if(command == "cd about"){
+                    commands_history.push("cd about")
+                    directory = 2;
+                }
+                else if(command == "cd projects"){
+                    commands_history.push("cd projects")
+                    directory = 3;
+                }
+                else if(command == "cd contacts"){
+                    commands_history.push("cd contacts")
+                    directory = 4;
+                }
+                else if(directory == 0){
+                    //console.log("lol")
+                    if(command != 'cd ..'){
+                        output('<p>No such file or directory</p>')
+                    }
+                    if(command == 'cd ..'){
+                        commands_history.push("cd ..")
+                        directory = 0
+                    }
+                }
+            }
+
+            
+
+            else if(directory == 1){
+                if(command != 'cd ..'){
+                    output('<p>No such file or directory</p>')
+                }
+                if(command == 'cd ..'){
+                    commands_history.push("cd ..")
+                    directory = 0
+                }
+            }
+
+            else if(directory == 2){
+                if(command != 'cd ..'){
+                    output('<p>No such file or directory</p>')
+                }
+                if(command == 'cd ..'){
+                    commands_history.push("cd ..")
+                    directory = 0
+                }
+            }
+
+            else if(directory == 3){
+                if(command != 'cd ..'){
+                    output('<p>No such file or directory</p>')
+                }
+                if(command == 'cd ..'){
+                    commands_history.push("cd ..")
+                    directory = 0
+                    //console.log("done")
+                }
+            }
+
+            else if(directory == 4){
+                if(command != 'cd ..'){
+                    output('<p>No such file or directory</p>')
+                }
+                if(command == 'cd ..'){
+                    commands_history.push("cd ..")
+                    directory = 0
+                }
+            }
+            //console.log(directory)
+            change_prefix()
+        }
+
+        function show_files(){
+            if(directory == 0){
+                output('<p>title&nbsp;&nbsp;&nbsp;&nbsp;about&nbsp;&nbsp;&nbsp;&nbsp;projects&nbsp;&nbsp;&nbsp;&nbsp;contacts</p>')
+            }
+            if(directory == 1){
+                output('<p>title.md</p>')
+            }
+            if(directory == 2){
+                output('<p>about.md</p>')
+            }
+            if(directory == 3){
+                output('<p>projects.md (tmp)</p>')
+            }
+            if(directory == 4){
+                output('<p>contact.md</p>')
+            }
+            change_prefix()
+        }
+
+        function echo_files(command){
+            if(directory == 0){
+                output('<p>No file to show</p>')
+                change_prefix()
+            }
+            if(directory == 1){
+                if(command == "show title.md"){
+                    commands_history.push("show title.md")
+                    output(title)
+                    change_prefix()
+                }
+                else{
+                    output('<p>No file to show</p>')
+                    change_prefix()
+                }
+            }
+            if(directory == 2){
+                if(command == "show about.md"){
+                    commands_history.push("show about.md")
+                    output(about)
+                    change_prefix()
+                }
+                else{
+                    output('<p>No file to show</p>')
+                    change_prefix()
+                }
+            }
+            if(directory == 3){
+                if(command == "show projects.md"){
+                    commands_history.push("show projects.md")
+                    for(i=0; i<projects.length; i++){
+                        output(projects[i])
+                    }
+                    change_prefix()
+                }
+                else{
+                    output('<p>No file to show</p>')
+                    change_prefix()
+                }
+            }
+            if(directory == 4){
+                if(command == "show contact.md"){
+                    commands_history.push("show contact.md")
+                    output(contact)
+                    change_prefix()
+                }
+                else{
+                    output('<p>No file to show</p>')
+                    change_prefix()
+                }
+            }
+
+        }
+
+        function clear_screen(){
+            var terminal = document.getElementById("terminal");
+            terminal.innerHTML = prefix;
+        }
+
+        commands_history = []
+        var commandindex
+        var tmpindex = 0
+
+        function upanddown(key){
+            console.table(commands_history)
+            if(commandindex == undefined || commands_history.length != tmpindex){
+                commandindex = commands_history.length;
+                tmpindex = commandindex
+                console.log("yes ")
+            }
+
+            el = document.querySelectorAll(".command:last-child")
+            var lastLiItem = document.querySelectorAll(".command:nth-last-of-type(1)");
+
+            if(key == "ArrowUp"){
+                
+                if(commandindex - 1 >= 0 && commandindex - 1 <= commands_history.length){
+                    commandindex -= 1
+                }
+                console.log(commandindex)
+                
+                if(commands_history[commandindex] != undefined){
+                    lastLiItem[0].innerHTML = prefix
+                    if(lastLiItem[0].textContent.slice(-1) == "▮"){
+                        lastLiItem[0].textContent = lastLiItem[0].textContent.substring(0, lastLiItem[0].textContent.length - 1);
+                    }
+                    lastLiItem[0].textContent += commands_history[commandindex] + "▮";
+                }
+            }
+            else if(key == "ArrowDown"){
+                
+                if(commandindex + 1 >= 0 && commandindex + 1 < commands_history.length){
+                    commandindex += 1
+                }
+                console.log(commandindex)
+                
+                if(commands_history[commandindex] != undefined){
+                    lastLiItem[0].innerHTML = prefix
+                    if(lastLiItem[0].textContent.slice(-1) == "▮"){
+                        lastLiItem[0].textContent = lastLiItem[0].textContent.substring(0, lastLiItem[0].textContent.length - 1);
+                    }
+                    lastLiItem[0].textContent += commands_history[commandindex] + "▮";
+                }
+            }
+        }
+
+        function validate_command(command){
+            var com = ""
+            var values = command.split(" ");
+            for(i = 1; i<values.length; i++){
+                com += values[i]
+            }
+            //console.log(com)
+
+            if(com == "help"){
+                commands_history.push("help")
+                output('<p>Type "help" to see this list <br>ls: list directory contents <br>cd: change directory <br>show &#60;filename&#62;: display file content <br>&#8595;	&#8593;: commands history<br>clear: clear the terminal screen </p>')
+                change_prefix()
+            }
+            else if(com.includes("ls")){
+                if(com == "ls"){
+                    commands_history.push("ls")
+                    show_files();
+                }
+                else {
+                    output('<p>' + com + ': Unkown command</p>')
+                    change_prefix()
+                }
+            }
+            else if(com.includes("cd")){
+                change_directory(com);
+            }
+            else if(com.includes("show")){
+                echo_files(com);
+            }
+            else if(com == "clear"){
+                commands_history.push("clear")
+                clear_screen();
+            }
+            else if(com == ""){
+                change_prefix()
+            }
+            else {
+                output('<p>' + com + ': Unkown command</p>')
+                change_prefix()
+            }
+        }
+        
+        var terminal = document.getElementById("terminal");
+        function output(extra){
+            terminal.innerHTML += extra;
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+    </script>
+</html>
